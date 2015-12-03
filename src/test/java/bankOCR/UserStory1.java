@@ -3,6 +3,9 @@ package bankOCR;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,12 +19,14 @@ public class UserStory1 {
 
 	@Before
 	public void setUp() {
-		FILE_5 = "C:/Users/cyr/workspace/bankOCR/src/test/resources/5_accounts_file.txt";
+		FILE_5 = "./src/test/resources/5_accounts_file.txt";
 	}
 
 	@Test
-	public void should_read_the_file() {
+	public void should_read_the_file() throws IOException {
 		File _5 = new File(FILE_5);
+		FileReader fileReader = new FileReader(_5);
+		fileReader.close();
 	}
 
 	@Test
