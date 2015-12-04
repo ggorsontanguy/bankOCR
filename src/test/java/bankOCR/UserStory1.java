@@ -74,7 +74,7 @@ public class UserStory1 {
 	@Test
 	public void number_one_should_be_converted_to_int_2() {
 		// GIVEN
-		Chiffre givenNumber = new Chiffre("   ", "  |", "  |", "   ");
+		Chiffre givenNumber = new Chiffre(" _ ", " _|", "|_ ", "   ");
 		
 		//WHEN
 		int actual = givenNumber.convertToInt();

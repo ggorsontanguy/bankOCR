@@ -67,8 +67,23 @@ public class Chiffre {
 		return true;
 	}
 
+	private static Chiffre _1 = new Chiffre("   ", "  |", "  |", "   ");
+	private static Chiffre _2 = new Chiffre(" _ ", " _|", "|_ ", "   ");
+	private static Chiffre _3 = new Chiffre("   ", "   ", "   ", "   ");
+	private static Chiffre _4 = new Chiffre("   ", "   ", "   ", "   ");
+	private static Chiffre _5 = new Chiffre("   ", "   ", "   ", "   ");
+	private static Chiffre _6 = new Chiffre("   ", "   ", "   ", "   ");
+	private static Chiffre _7 = new Chiffre("   ", "   ", "   ", "   ");
+	private static Chiffre _8 = new Chiffre("   ", "   ", "   ", "   ");
+	private static Chiffre _9 = new Chiffre("   ", "   ", "   ", "   ");
+	
 	public int convertToInt() {
-		return 1;
+		if (this.equals(_1))
+			return 1;
+		else if (this.equals(_2))
+			return 2;
+		else 
+			throw new NumberFormatException();
 	}
 	
 	
