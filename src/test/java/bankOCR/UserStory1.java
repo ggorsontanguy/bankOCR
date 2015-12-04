@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.assertj.core.description.Description;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -55,6 +56,19 @@ public class UserStory1 {
 		
 		//THEN
 		assertThat(givenNumber.equals(_1)).isTrue();
+	}
+	
+	public void number_one_should_be_converted_to_int_1() {
+		// GIVEN
+		Chiffre givenNumber = new Chiffre("   ", "  |", "  |", "   ");
+		
+		//WHEN
+		int actual = givenNumber.convertToInt();
+		
+		//THEN
+		int expected = 1;
+		assertThat(actual).as("Given int value").isEqualTo(expected );
+		
 	}
 	
 	@Test

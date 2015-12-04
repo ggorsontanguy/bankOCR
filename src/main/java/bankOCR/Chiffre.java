@@ -66,6 +66,10 @@ public class Chiffre {
 			return false;
 		return true;
 	}
+
+	public int convertToInt() {
+		return 1;
+	}
 	
 	
 	
