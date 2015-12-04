@@ -72,6 +72,20 @@ public class UserStory1 {
 	}
 	
 	@Test
+	public void number_one_should_be_converted_to_int_2() {
+		// GIVEN
+		Chiffre givenNumber = new Chiffre("   ", "  |", "  |", "   ");
+		
+		//WHEN
+		int actual = givenNumber.convertToInt();
+		
+		//THEN
+		int expected = 2;
+		assertThat(actual).as("Given int value").isEqualTo(expected );
+		
+	}
+	
+	@Test
 	@Ignore
 	public void should_read_a_block_and_do_not_throw_any_exception(){
 		//GIVEN
