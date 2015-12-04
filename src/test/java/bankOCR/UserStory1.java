@@ -2,11 +2,13 @@ package bankOCR;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 import org.assertj.core.description.Description;
@@ -58,6 +60,7 @@ public class UserStory1 {
 		assertThat(givenNumber.equals(_1)).isTrue();
 	}
 	
+	@Test
 	public void number_one_should_be_converted_to_int_1() {
 		// GIVEN
 		Chiffre givenNumber = new Chiffre("   ", "  |", "  |", "   ");
@@ -69,6 +72,50 @@ public class UserStory1 {
 		int expected = 1;
 		assertThat(actual).as("Given int value").isEqualTo(expected );
 		
+	}
+
+	@Test
+	public void should_found_number_one_in_the_first_block_of_the_file() {
+		
+		//GIVEN
+		File file = new File(FILE_5);
+
+		List<String> lines = new ArrayList<String>();
+		
+		try {
+			BufferedReader input = new BufferedReader(new FileReader(file));
+			try {
+				String line = null;
+				int counter = 0;
+				final int maxLine = 4;
+				while ((line = input.readLine()) != null) {
+					if ((counter++) < maxLine) {
+						lines.add(line);
+					} else {
+						break;
+					}
+				}
+			} finally {
+				input.close();
+			}
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+		
+		assertThat(lines).isNotEmpty();
+		assertThat(lines.size()).isEqualTo(4);
+		
+		int index = 0;
+		String first = lines.get(index++).substring(0, 3);
+		String second  = lines.get(index++).substring(0, 3);
+		String third  = lines.get(index++).substring(0, 3);
+		String fourth  = lines.get(index++).substring(0, 3);
+		
+		//WHEN
+		Chiffre actualNumber = new Chiffre(first, second, third, fourth);
+		
+		
+		assertThat(actualNumber.convertToInt()).isEqualTo(1);
 	}
 	
 	@Test
