@@ -4,14 +4,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
 
-import org.assertj.core.description.Description;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
