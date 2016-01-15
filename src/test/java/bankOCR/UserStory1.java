@@ -12,7 +12,7 @@ import org.junit.Test;
 
 public class UserStory1 {
 
-	String FILE_5;
+	private String FILE_5;
 
 	@Before
 	public void setUp() {
